@@ -1,0 +1,74 @@
+#Inicio Função cachorro_peso()
+def cachorro_peso():
+  while True:
+    try:
+      cachorro_peso = int(input('Digite o peso do cachorro (kg): '))
+      if (cachorro_peso <= 3):
+        return cachorro_peso == 40
+      elif (cachorro_peso >= 3) and (cachorro_peso <= 10):
+        return cachorro_peso == 50
+      elif (cachorro_peso >= 10) and (cachorro_peso <= 30):
+        return cachorro_peso == 60
+      elif (cachorro_peso >= 30) and (cachorro_peso <= 50):
+        return cachorro_peso == 70
+      else:
+        print('NÃO ACEITAMOS CACHORROS TÃO GRANDES!')
+    except ValueError: #Caso o usuário digite letras ou não números inteiros
+      print('Você digitou um valor não númerico. Tente novamente!')
+#Fim Função cachorro_peso()
+
+#Inicio Função cachorro_pelo()
+def cachorro_pelo():
+  while True:
+    cachorroP = input('Entre com o tipo de pêlo do cachorro \n' +
+                      'c - Pêlo Curto \n' +
+                      'm - Pêlo Médio \n' +
+                      'l - Pêlo Longo \n' +
+                      '>> ')
+    cachorroP = cachorroP.lower()
+    cachorroP = cachorroP.strip() #retira o espaçamento digitado pelo usuário
+    if cachorroP == 'c':
+      return 1.0
+    elif cachorroP == 'm':
+      return 1.5
+    elif cachorroP == 'l':
+      return 2.0
+    else:
+      print('DIGITE O TIPO DE PÊLO DO CACHORRO CORRETAMENTE! c/m/l')
+#Fim Função cachorro_pelo()
+
+#Inicio Função cachorro_extra()
+def cachorro_extra():
+  acumulador = 0
+  while True:
+    cachorro_extraP = input('Deseja adicionar mais algum serviço? \n' +
+                            '1 - Corte de Unhas - R$ 10,00 \n' +
+                            '2 - Escovar Dentes - R$ 12,00 \n' +
+                            '3 - Limpeza de Orelhas - R$ 15,00 \n' +
+                            '0 - Não desejo mais nada \n' +
+                            '>> ')
+    cachorro_extraP = cachorro_extraP.lower()
+    cachorro_extraP = cachorro_extraP.strip() #retira o espaçamento na digitação do usuário
+    if cachorro_extraP == '0':
+      return acumulador
+    elif cachorro_extraP == '1':
+      acumulador = acumulador + 10.00
+      continue #volta para o início do menu
+    elif cachorro_extraP == '2':
+      acumulador = acumulador + 12.00
+      continue #volta para o início do menu
+    elif cachorro_extraP == '3':
+      acumulador = acumulador + 15.00
+      continue #volta para o início do menu
+    else:
+      print('Digite uma opção extra válida!')
+#Fim Função cachorro_extra()
+
+#Início do Main
+print('-------------------- Bem-vindo ao Pet Shop do Newton Cavalcanti Netto --------------------')
+cachorro_peso = cachorro_peso()
+cachorro_pelo = cachorro_pelo()
+cachorro_extra = cachorro_extra()
+total = cachorro_peso * cachorro_pelo + cachorro_extra
+print ('O Total a ser pago ficou: R$ {:.2f} (Peso: R$ {:.2f}, Pêlo: R$ {:.2f}, Extra: R$ {:.2f})' . format(total,cachorro_peso,cachorro_pelo,cachorro_extra))
+#Fim do Main
