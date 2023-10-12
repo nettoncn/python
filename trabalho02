@@ -1,0 +1,65 @@
+#identificador
+print('Bem-vindo a Sorveteria do Newton Cavalcanti Netto')
+#menu-cardapio
+print('------------------------------------CARDÁPIO-------------------------------------')
+print('| Nº BOLAS | SABOR TRADICIONAL (TR)  | SABOR PREMIUM (PR) | SABOR ESPECIAL (ES) |')
+print('|    1     |     R$ 6,00             |        R$ 7,00     |      R$ 8,00        |')
+print('|    2     |     R$ 10,00            |        R$ 12,00    |      R$ 14,00       |')
+print('|    3     |     R$ 14,00            |        R$ 17,00    |      R$ 20,00       |')
+print('---------------------------------------------------------------------------------')
+acumulador = 0
+while True:
+  sabor = input('Entre com o sabor desejado (TR/ES/PR): ')
+  sabor = sabor.upper()
+  if sabor != 'TR' and sabor != 'ES' and sabor != 'PR' :
+    print('Opção Inválida! Digite um sabor válido!')
+    continue #opção inválida volta para o começo do while
+
+  bola = input('Entre com o número de bolas desejado: ')
+  if bola != '1' and bola != '2' and bola != '3' :
+    print('Número de bolas de sorvete inválido! Tente novamente.')
+    continue #opção inválida volta para o começo do while
+
+  if bola == '1' and sabor == 'TR' :
+    print('Você pediu 1 bola de sorvete TRADICIONAL: R$ 6,00')
+    acumulador = acumulador + 6 #valor acumulado somado com 6
+
+  elif bola == '2' and sabor == 'TR':
+    print('Você pediu 2 bolas de sorvete TRADICIONAL: R$ 10,00')
+    acumulador = acumulador + 10 #valor acumulado somado com 10
+
+  elif bola == '3' and sabor == 'TR':
+    print('Você pediu 3 bolas de sorvete TRADICIONAL: R$ 14,00')
+    acumulador = acumulador + 14 #valor acumulado somado com 14
+
+  elif bola == '1' and sabor == 'PR':
+    print('Você pediu 1 bola de sorvete PREMIUM: R$ 7,00')
+    acumulador = acumulador + 7 #valor acumulado somado com 7
+
+  elif bola == '2' and sabor == 'PR':
+    print('Você pediu 2 bolas de sorvete PREMIUM: R$ 12,00')
+    acumulador = acumulador + 12 #valor acumulado somado com 12
+
+  elif bola == '3' and sabor == 'PR':
+    print('Você pediu 3 bolas de sorvete PREMIUM: R$ 17,00')
+    acumulador = acumulador + 17 #valor acumulado somado com 17
+
+  elif bola == '1' and sabor == 'ES':
+    print('Você pediu 1 bola de sorvete ESPECIAL: R$ 8,00')
+    acumulador = acumulador + 8 #valor acumulado somado com 8
+
+  elif bola == '2' and sabor == 'ES':
+    print('Você pediu 2 bolas de sorvete ESPECIAL: R$ 14,00')
+    acumulador = acumulador + 14 #valor acumulado somado com 14
+
+  elif bola == '3' and sabor == 'ES':
+    print('Você pediu 3 bolas de sorvete ESPECIAL: R$ 20,00')
+    acumulador = acumulador + 20 #valor acumulado somado com 20
+
+  pedir_mais =input('Deseja pedir mais algum sorvete? (S/N)?: ')
+  pedir_mais = pedir_mais.upper() #caso o usuário digite minusculo
+  if pedir_mais == 'S':
+    continue
+  else:
+    print('Obrigado pelo seu pedido! O valor total a ser pago: R$ {:.2f}' . format(acumulador))
+    break #encerrar programa
